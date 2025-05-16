@@ -3,7 +3,7 @@ import './App.css'
 import Signup from './pages/Signup'
 import Home from './components/Home'
 import Login from './pages/Login'
-import Navbar from './components/Navbar'
+
 
 function App() {
  
@@ -12,7 +12,7 @@ function App() {
     
     <Router>
       <Routes>
-        <Route path="/" element={ <><Navbar /> <Home /></> } />
+        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Signup />} />
          <Route path="/Login" element={<Login />} />
       </Routes>

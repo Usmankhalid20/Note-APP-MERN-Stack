@@ -1,6 +1,7 @@
 const User = require('../Models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
 
 const Register = async(req, res) => {
     try {
@@ -20,7 +21,7 @@ const Register = async(req, res) => {
        
         });
         await user.save();
-        return res.status(201).json({success: true,user, message: "User created successfully"});
+        return res.status(201).json({success: true, user, message: "User created successfully"});   
         
     } catch (error) {
         return res.status(201).json({success: true, message: "Error in Adding User"});
@@ -41,8 +42,19 @@ const Login = async(req, res) => {
         if(!checkUserPassword) {
             return res.status(400).json({success: false, message: "Invalid Password"});
         } 
-        return res.status(201).json({success: true, message: "User Login successfully"});
-        
+        // return res.status(201).json({success: true, message: "User Login successfully"});
+
+       const token = jwt.sign({ id: users._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+       return res.status(200).json({
+      success: true,
+      message: "User Login successfully",
+      token,
+      User: {   
+        name: users.name,
+      }
+    });
+
     } catch (error) {
         return res.status(201).json({success: true, message: "Error in Adding User"});
     }
