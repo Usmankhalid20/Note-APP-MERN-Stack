@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import  { useAuth }  from "../Context/ContextProvider";
 
 const Navbar = () => {
-  const { auth, logout } = useAuth();
+  const { user, logout } = useAuth();
   return (
     <>
       <nav className="bg-gray-800 p-4 text-white flex justify-between items-center">
@@ -17,14 +17,14 @@ const Navbar = () => {
         />
 
         <div>
-          {!auth ? (
+          {!user ? (
             <>
               <Link to="/Login" className="bg-blue-500 px-4 py-2 rounded mr-4 cursor-pointer">  Login </Link>
               <Link to="/register" className="bg-green-500 px-4 py-2 rounded mr-2 cursor-pointer"> Sign up </Link>
             </>
           ) : (
             <>
-              <span className="mr-4">{ auth.name }</span>
+              <span className="mr-4">{ user.name }</span>
               <button onClick={logout} className="bg-red-500 px-4 py-2 rounded cursor-pointer ">Logout</button>
             </>
           )}
