@@ -82,6 +82,8 @@ const Home = () => {
       );
       if (response.data.success) {
     //    console.log(response.data, "hello");
+        fetchNote();
+        closeModel();
       }
       alert("Note Successfully Deleted");
     } catch (error) {

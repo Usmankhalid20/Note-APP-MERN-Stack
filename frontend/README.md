@@ -1,12 +1,102 @@
-# React + Vite
+# 📝 NoteApp – MERN Stack Notes Management App
+A responsive full-stack web app built using the **MERN stack (MongoDB, Express.js, React, Node.js)** that allows users to create, read, update, and delete notes easily with a clean and user-friendly interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Features
 
-Currently, two official plugins are available:
+- 🔐 User Authentication (Sign Up / Login) using JWT
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📌 Add, Edit, Delete, and Search Notes
 
-## Expanding the ESLint configuration
+- 🎯 Real-time updates to the notes list
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 💾 Data stored securely in MongoDB Atlas
+
+- 🌐 Fully responsive UI – works on mobile and desktop
+
+- ✨ Built with React Hooks, Context API, and Express REST API
+ 
+
+ ---
+
+# 🛠 Technologies Used
+- MongoDB – NoSQL database for data storage.
+
+- Express.js – Backend framework for API routes.
+
+- React.js – Frontend framework with hooks & context.
+
+- Node.js – Server-side runtime environment.
+
+- JWT – For authentication and session handling.
+
+- Axios – For communicating between frontend and backend.
+
+- Tailwind CSS – For modern, responsive styling.
+
+
+
+
+# Clone the repository
+```
+git clone https://github.com/your-username/noteapp-mern.git
+```
+
+# Install backend dependencies
+```
+cd server
+npm install
+npm run dev
+```
+
+# Install frontend dependencies
+```
+cd ../client
+npm install
+npm start
+🌐 Environment Variables
+Create a .env file in the server directory:
+
+
+ini
+Copy
+Edit
+PORT=5000
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+CLIENT_URL=http://localhost:3000
+```
+
+
+# 📂 Folder Structure
+```
+
+noteapp-mern/
+│
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── config/
+│   ├── main.js
+│   └── .env
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── index.js
+│   └── public/
+│
+└── README.md
+
+```
+
+# 📸 Preview
+![App Screenshot](./assets/note.PNG)
+# ✍️ Author
+- Usman Khalid
+- 💼 MERN Stack Developer
+
