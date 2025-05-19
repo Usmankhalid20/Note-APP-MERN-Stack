@@ -17,6 +17,7 @@ const Login = () => {
             const response = await axios.post("http://localhost:3000/api/Login",  {
                 email, password
             });
+
             console.log(response.data)
             if(response.data.success) {
                 login(response.data.User); 

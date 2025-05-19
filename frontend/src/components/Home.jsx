@@ -8,8 +8,10 @@ import NoteCard from "./NoteCard";
 
 const Home = () => {
   const [isModelOpen, setModelOpen] = useState(false);
+  const [filterNote, setFilterNote] = useState(false)
   const [notes, setNotes] = useState([]);
   const [currentNote, setCurrentNote] = useState(null)
+  const [query, setQuery] = useState('')
 
 //    const { login } = useAuth()
 
@@ -34,6 +36,17 @@ const Home = () => {
     fetchNote();
     }, {})
 
+    // search notes
+    useEffect(() => {
+      setFilterNote(
+      notes.filter((note) => 
+      note.title.toLowerCase().includes(query.toLowerCase()) ||
+      note.description.toLowerCase().includes(query.toLowerCase())
+    
+     )
+      
+    )}, [query, notes])
+    
   const closeModel = () => {
     setModelOpen(false);
   };
@@ -114,14 +127,14 @@ const Home = () => {
   };
   return (
     <div className="bg-gray-100 min-h-screen">
-      <Navbar />
+      <Navbar setQuery={setQuery} />
 
       
         <div className="p-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {notes.map((note, item) => (
+        { filterNote.length > 0 ?  filterNote.map((note, item) => (
          <NoteCard key={item._id} note={note} onEdit={onEdit} deleteNote={deleteNote}
          />
-        ))}
+        )) : <p>Add Notes</p> }
       </div>
       <button
         onClick={() => setModelOpen(true)}
