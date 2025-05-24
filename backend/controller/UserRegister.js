@@ -31,12 +31,15 @@ const Register = async(req, res) => {
 const Login = async(req, res) => {
  try {
         const {email, password} = req.body;
+        console.log(email, password, "email and password");
+        console.log(req.body)
         if(!email || !password) {
             return res.status(400).json({message: "Please fill all the fields"});
         } 
         const users = await User.findOne({ email });
+        console.log(users, "users data ");
         if(!users) {
-            return res.status(400).json({success: false, message: "User already exists"});
+            return res.status(400).json({ success: false, message: "User not found" });
         }
         const checkUserPassword = await bcrypt.compare(password, users.password);
         if(!checkUserPassword) {
